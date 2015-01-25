@@ -63,25 +63,23 @@ apiRouter.post('/authenticate', function(req, res) {
       var validPassword = user.comparePassword(req.body.password);
       if (!validPassword) {
         res.json({ success: false, message: 'Authentication failed. Wrong password.' });
-      } else {
+      } 
 
-        // if user is found and password is right
-        // create a token
-        var token = jwt.sign({
-        	name: user.name,
-        	username: user.username
-        }, superSecret, {
-          expiresInMinutes: 1440 // expires in 24 hours
-        });
+	// if user is found and password is right
+	// create a token
+	var token = jwt.sign({
+		name: user.name,
+		username: user.username
+	}, superSecret, {
+	  expiresInMinutes: 1440 // expires in 24 hours
+	});
 
-        // return the information including token as JSON
-        res.json({
-          success: true,
-          message: 'Enjoy your token!',
-          token: token
-        });
-      }   
-
+	// return the information including token as JSON
+	res.json({
+	  success: true,
+	  message: 'Enjoy your token!',
+	  token: token
+	});
     }
 
   });
