@@ -1,4 +1,4 @@
-angular.module('appRoutes', ['ngRoute'])
+angular.module('app.routes', ['ngRoute'])
 
 .config(function($routeProvider, $locationProvider) {
 
@@ -13,7 +13,7 @@ angular.module('appRoutes', ['ngRoute'])
 		.when('/login', {
 			templateUrl : 'app/views/pages/login.html',
    			controller  : 'mainController',
-    		controllerAs: 'login'
+    			controllerAs: 'login'
 		})
 		
 		// show all users
